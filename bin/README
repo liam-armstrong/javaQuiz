@@ -1,0 +1,112 @@
+README.txt
+Program by Liam Armstrong and Jacob D. for Mr. Martell's grade 12 Computer Science class
+
+Summary (in order):
+
+JavaQuiz.java
+	1. User uses filechooser to select file
+	2. File is checked for errors
+	3. File is imported into Question Objects based on comma separations
+		a. Questions are sorted into Easy, Medium or Hard arraylists based on difficulty
+	4. StartOptions.java GUI is launched
+	
+StartOptions.java
+	1. The user selects at least one difficulty checkbox
+		a. If the user does not, and attempts to continue, an error pops up
+		b. Simply adds selected difficulty's respective ArrayList to next ArrayList
+	2. The user can filter a word, or set of words that must be contained in the questions
+		a. Pressing "go" adds word to String arraylist and to the GUI
+		b. Filtering is done after sorting for difficulty (once continue button is pressed)
+		c. Filtering is done with array specific sorting method in JavaQuiz (driver)
+		d. So far, questions have gone from specific difficulty ArrayLists, to one "Difficulty sorted" ArrayList to the "Word sorted" ArrayList
+	3. Once continue is pushed, window closes and launches Confirmation.java
+
+Confirmation.java
+	1. The user can add another topic (a second word searc that is separate from the first)
+		a. This is done by re-sorting the difficulty sorted list and adding it to the word sorted list (using a one word search method in JavaQuiz.java)
+	2. An issue with this GUI; it doesn't account for multi-line questions, causeing some formatting errors
+	3. The user multi-selects the questions they want on the quiz. 
+		a. This is confirmed when the "Take Quiz" button is pressed
+	4. When "Take Quiz" is pressed, Confirmation closes and opens Quiz.java
+	
+Quiz.java
+	1. Text Area shows question, while buttons are used to submit answer and move to next question
+		a. Answers are submitted using CheckAnswer method in JavaQuiz.java
+	2. GUI runs on a sudo loop (using if statements and an int variable to confirm when done
+		(Personal Note: This is programmed stupidly and will be the first thing to be re-done)
+	3. Label tells user how many questions are left and which question they are on.
+	4. After all questions have been answered, Quiz.java automatically closes and launchs Results.java
+	
+Results.java
+	1. Shows results from JavaQuiz's counter and correctAnswers integers
+	2. Gives users option to retry quiz with the same questions
+		a. Simply resets counts and relaunchs quiz
+		b. TODO: give users option to pick new questions
+	3. Gives user the option to print quiz and answer key to a file 
+		a. Uses PrintQuizAnswers and PrintQuiz methods from JavaQuiz.java
+	4. Finish button shuts down JVM and window.
+	
+	
+GUI order:
+StartOptions -> Confirmation -> Quiz -> Results -(depending)-> Quiz
+
+UML:
+JavaQuiz
+	Variables
+		File JavaQuiz;
+		ArrayList<Question> finalList
+		ArrayList<Question> Easy
+		ArrayList<Question> Medium
+		ArrayList<Question> Hard
+		ArrayList<Question> DifficultySortList_1
+		ArrayList<Question> WordFilterList_2
+		int QAmount;
+		int count;
+		int correctAmount;
+		Scanner file;
+		Scanner counter;
+	
+	Mutators
+		WordFilter
+		WordFilterArray
+		CheckAnswer
+		FileChooser
+	
+	Accessors
+		TryCatch
+		Import
+		Counter
+		PrintQuiz
+		PrintQuizAnswers
+		
+StartOptions
+	Variables
+		String filter
+		ArrayList<String> filterList
+
+Confirmation
+	Variables
+		String filter
+
+Quiz
+	Variables
+		int i
+
+Results
+	N/A
+	
+Question
+	Variables
+		String Question
+		String Answers
+		char Correct
+		int Difficulty
+	
+	Accessor Methods
+		GetQuestion
+		GetAnswers
+		GetCorrect
+		GetDifficulty
+
+Multiple Choice
+	Inherited from above ^

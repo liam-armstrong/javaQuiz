@@ -1,2 +1,2 @@
 # javaQuiz
-Java App to Read Multiple Choice (CSV) Quiz Files and Quiz the User
+Java app to read multiple choice (CSV) quiz files and quiz the user
