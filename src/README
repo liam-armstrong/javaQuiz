@@ -1,5 +1,5 @@
 README.txt
-Program by Liam Armstrong and Jacob D. for Mr. Martell's grade 12 Computer Science class
+Program by Liam Armstrong and [Jacob D.](https://github.com/jacobdanovitch) for Mr. Martell's grade 12 Computer Science class
 
 Summary (in order):
 
